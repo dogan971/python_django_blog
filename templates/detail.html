@@ -1,0 +1,34 @@
+{% extends "layout.html" %}{% block body %}
+<div class="row">
+  <div class="col-lg-6">
+    <article>
+      <header class="mb-4">
+        <h1 class="fw-bolder mb-1">{{article.title}}</h1>
+        <div class="text-muted fst-italic mb-2">
+          by {{article.author.username}}
+          <br />
+          {{article.created_date}}
+        </div>
+      </header>
+      <section class="mb-5">
+        <p class="fs-5 mb-4">{{article.content}}</p>
+      </section>
+    </article>
+
+    <section class="mb-5">
+      <div class="card bg-light">
+        <div class="card-body">
+          <form class="mb-4">
+            <textarea
+              class="form-control"
+              rows="3"
+              placeholder="Join the discussion and leave a comment!"
+            ></textarea>
+          </form>
+        </div>
+        <button type="submit" class="btn btn-primary">Ekle</button>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock body %}

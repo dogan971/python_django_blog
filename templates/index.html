@@ -7,6 +7,9 @@
     vero, vel dolorum sint ipsam iusto iure accusamus tempore assumenda deserunt
     quam enim provident? Perferendis neque iusto amet maiores?
   </p>
-  <p>{{number}}</p>
+  <p>
+    {% if request.user.is_authenticated %} Giriş Yapılmış
+    {{request.user.username}} {% else %} Giriş Yapılmamış {% endif %}
+  </p>
 </div>
 {% endblock body %}

@@ -21,4 +21,6 @@ urlpatterns = [
     path('',views.index,name="index"), # localhost:8000 yazdıgımızda bu çalışıcak
     path("about/",views.about,name="about"),
     path("article/",include("article.urls")),
+    path("user/",include("user.urls")),
+
  ]
