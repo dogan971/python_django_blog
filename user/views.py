@@ -3,6 +3,7 @@ from . import forms
 from django.contrib.auth.models import User 
 from django.contrib import auth
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def register(request):
     
@@ -59,6 +60,7 @@ def login(request):
         auth.login(request,user)
         return redirect("index")
     return render(request,"login.html",context)
+@login_required(login_url="user:login")
 def logout(request):
     auth.logout(request)
     messages.success(request,"Başarılı...")

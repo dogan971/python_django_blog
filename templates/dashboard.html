@@ -19,16 +19,18 @@
     {% for article in articles %}
     <tr>
       <th scope="row">{{article.id}}</th>
-      <td><a href="/article/detail/{{article.id}}">{{article.title}}</a></td>
+      <td>
+        <a href="{% url 'article:detail' article.id %}">{{article.title}}</a>
+      </td>
       <td>{{article.author.username}}</td>
       <td>{{article.created_date}}</td>
       <td>
-        <a href="/article/update/{{article.id}}">
+        <a href="{% url 'article:update' article.id %}">
           <button class="btn btn-warning">Güncelle</button></a
         >
       </td>
       <td>
-        <a href="/article/delete/{{article.id}}">
+        <a href="{% url 'article:delete' article.id %}">
           <button class="btn btn-danger">Sil</button></a
         >
       </td>
@@ -40,7 +42,7 @@
 <div class="alert alert-danger">Hiç Makale Bulunamadı</div>
 {% endif %}
 
-<a href="/article/addarticle"
+<a href="{% url 'article:addarticle' %}"
   ><button type="submit" class="btn btn-danger">Makale Ekle</button>
 </a>
 
